@@ -11,12 +11,16 @@ createApp({
         // recupero la lista todo dal server
         getTodoList() {
             axios.get('server.php').then(response => {
-
+                // assegno i dati ricevuti all'array todos
+                this.todos = response.data;
+                // debug
+                console.log(this.todos);
             })
         }
 
     },
     mounted() {
-
+        // richiamo il metodo getTodoList
+        this.getTodoList();
     },
 }).mount('#app');
